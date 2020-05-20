@@ -12,10 +12,10 @@ resource "aws_instance" "server" {
     }
 
     #Instance tags
-    tags {
-        Name = "${var.tagName}-${count.index}"
-        ConsulRole = "Server"
-    }
+    # tags {
+    #     Name = "${var.tagName}-${count.index}"
+    #     ConsulRole = "Server"
+    # }
 
     provisioner "file" {
         source = "${path.module}/shared/scripts/${lookup(var.service_conf, var.platform)}"
